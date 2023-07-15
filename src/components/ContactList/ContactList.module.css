@@ -1,0 +1,23 @@
+.List {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style: none;
+}
+
+.Item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.Contact {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.Button {
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}

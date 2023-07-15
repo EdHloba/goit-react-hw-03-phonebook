@@ -1,0 +1,22 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 15px;
+  max-width: 300px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.Label {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-weight: 500;
+}
+.Input {
+  max-width: 200px;
+}
+.SubmitBtn {
+  max-width: 110px;
+  cursor: pointer;
+}
