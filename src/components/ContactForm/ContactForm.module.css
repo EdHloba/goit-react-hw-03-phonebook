@@ -13,10 +13,44 @@
   gap: 15px;
   font-weight: 500;
 }
-.Input {
-  max-width: 200px;
-}
+
 .SubmitBtn {
   max-width: 110px;
   cursor: pointer;
+}
+.Item {
+  display: block;
+  max-width: 200px;
+  height: 20px;
+  border: 1px solid #000;
+  position: relative;
+}
+.Item Input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+}
+.Item:after {
+  content: attr(data-title);
+  position: absolute;
+  top: -50px;
+  left: 220px;
+  width: 200px;
+  background: rgb(81, 148, 99);
+  border-radius: 10px;
+  padding: 10px 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.34s linear;
+  color: #fff;
+  box-shadow: 0 5px 12px #ccc;
+  pointer-events: none;
+}
+
+.Item:hover:after {
+  opacity: 1;
+  transform: translateY(0);
 }

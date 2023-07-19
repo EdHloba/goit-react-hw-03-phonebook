@@ -1,9 +1,24 @@
 import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import styled from 'styled-components';
 
 import { Component } from 'react';
 import css from './ContactForm.module.css';
+
+const ErrorText = styled.p`
+  color: red;
+  font-size: 12px;
+`;
+
+const FormError = ({ name }) => {
+  return (
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorText>{message}</ErrorText>}
+    />
+  );
+};
 
 class ContactForm extends Component {
   state = {
@@ -47,23 +62,35 @@ class ContactForm extends Component {
         <Form autoComplete="off" className={css.Form}>
           <label htmlFor="name" className={css.Label}>
             Name
-            <Field
-              className={css.Input}
-              type="text"
-              name="name"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            />
-            <ErrorMessage name="name" />
+            <div
+              className={css.Item}
+              data-title="Name may contain only letters and spaces. For example Adrian, Jacob Mercer."
+            >
+              <Field
+                className={css.Input}
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Jacob Mercer"
+              />
+            </div>
+            <FormError name="name" />
           </label>
           <label htmlFor="number" className={css.Label}>
             Number
-            <Field
-              className={css.Input}
-              type="tel"
-              name="number"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            />
-            <ErrorMessage name="number" />
+            <div
+              className={css.Item}
+              data-title="Phone number must be 7 digits and contain dashes. For example: 787-78-78"
+            >
+              <Field
+                className={css.Input}
+                id="number"
+                type="tel"
+                name="number"
+                placeholder="787-78-78"
+              />
+            </div>
+            <FormError name="number" />
           </label>
           <button type="submit" className={css.SubmitBtn}>
             Add contact
